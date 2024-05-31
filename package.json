@@ -1,7 +1,6 @@
 {
-  "name": "it-link-test-task",
+  "name": "it-link-test-task(NEXT.JS)",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",

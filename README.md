@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Тестовое задание для компании ИТ-ЛИНК с использованием Atomic Design
 
-## Getting Started
+В рамках тестового задания нужно было переписать код, реализуя принцип атомарного дизайна с использованием Next.js и TypeScript. Цель состоит в создании переиспользуемых и инкапсулированных компонентов, следуя методологии атомарного дизайна.
 
-First, run the development server:
+<pre>
+import { useState } from "react";
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+const Button = ({ children, ...props }) => (
+  <button {...props}>{children}</button>
+);
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+const Text = ({ children, ...props }) => <span {...props}>{children}</span>;
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+const ButtonText = ({ children, ...props }) => (
+  <Button {...props}>
+    <Text>{children}</Text>
+  </Button>
+);
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+const ButtonIncrement = () => {
+  const [index, setIndex] = useState(0);
+  const increment = () => setIndex(index + 1);
+  const decrement = () => setIndex(index - 1);
+  return (
+    <>
+      <Text>{index}</Text>
+      <ButtonText onClick={increment}>increment</ButtonText>
+      <ButtonText onClick={decrement}>decrement</ButtonText>
+    </>
+  );
+};
+</pre>
 
-## Learn More
+## Содержание
 
-To learn more about Next.js, take a look at the following resources:
+- [Введение](#введение)
+- [Атомарный дизайн](#атомарный-дизайн)
+  - [Атомы](#атомы)
+  - [Молекулы](#молекулы)
+  - [Организмы](#организмы)
+- [Технологический стек](#технологический-стек)
+- [Преимущества атомарного дизайна](#преимущества-атомарного-дизайна)
+- [Начало работы](#начало-работы)
+- [Структура проекта](#структура-проекта)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Введение
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Атомарный дизайн - это методология создания дизайн-систем, которая разбивает интерфейс на более мелкие, переиспользуемые компоненты. Такой подход способствует консистентности и масштабируемости в разработке пользовательских интерфейсов.
 
-## Deploy on Vercel
+## Атомарный дизайн
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Атомарный дизайн состоит из пяти уровней:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. **Атомы**: Основные строительные блоки дизайна, такие как кнопки, поля ввода и ярлыки.
+2. **Молекулы**: Группы атомов, объединенные вместе и функционирующие как единое целое. Например, поле формы с ярлыком и вводом.
+3. **Организмы**: Сложные компоненты, состоящие из молекул и атомов, которые формируют более крупные части интерфейса.
+
+## Технологический стек
+
+- **Next.js**
+- **React**
+- **TypeScript**
+
+## Преимущества атомарного дизайна
+
+1. **Переиспользуемость**: Компоненты создаются таким образом, чтобы их можно было использовать в различных частях приложения.
+2. **Поддерживаемость**: Легче поддерживать и обновлять маленькие, независимые компоненты.
+3. **Консистентность**: Единообразие в дизайне достигается за счет использования одних и тех же компонентов.
+4. **Масштабируемость**: Проект легко расширять благодаря модульной структуре компонентов.
+
+## Начало работы
+
+1. Клонируйте репозиторий: `git clone https://github.com/NivaiZ/it-link-test-task.git`
+2. Установите зависимости: `npm install`
+3. Запустите проект: `npm run dev`
+
+## Структура проекта
+
+it-link-test-task-next/<br>
+├── public/<br>
+├── src/<br>
+│   └── app/<br>
+│       └── page.tsx<br>
+├── .eslintrc.json<br>
+├── .gitignore<br>
+├── README.md<br>
+├── next.config.mjs<br>
+├── package-lock.json<br>
+├── package.json<br>
+├── tsconfig.json<br>

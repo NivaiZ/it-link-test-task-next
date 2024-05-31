@@ -1,0 +1,43 @@
+.button__list {
+	display: flex;
+}
+
+.button__operations {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100px;
+	height: 100px;
+	text-align: center;
+	color: #fff;
+	cursor: pointer;
+	background-color: #8498a7;
+	font-size: 35px;
+	transition: 0.5s ease;
+}
+
+.button__operations:hover {
+	opacity: 0.8;
+}
+
+.button__counter {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 150px;
+	margin: 0;
+	padding: 0;
+	box-shadow: none;
+	outline: none;
+	border: none;
+	color: #333C48;
+	font-size: 30px;
+	border: 1px solid #8498a7;
+}
+
+@media (max-width: 767px) {
+	.button__operations {
+		width: 50px;
+		height: 50px;
+	}
+}
